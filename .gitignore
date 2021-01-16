@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Other
+.vscode
+.DS_Store
+
+# CLIP files
+CLIP
+model.py
+clip.py
+simple_tokenizer.py
+bpe_simple_vocab_16e6.txt.gz
