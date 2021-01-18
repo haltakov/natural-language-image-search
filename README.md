@@ -46,7 +46,9 @@ Photo by [Michael Heuser](https://unsplash.com/@gum_meee?utm_source=ml_image_sea
 
 ## Acknowledgement
 
-This project was inspired by these two other projects:
+This project was inspired by these projects:
 
 -   [Beyond tags and entering the semantic search era on images with OpenAI CLIP](https://towardsdatascience.com/beyond-tags-and-entering-the-semantic-search-era-on-images-with-openai-clip-1f7d629a9978) by [Ramsri Goutham Golla](https://twitter.com/ramsri_goutham)
 -   [Alph, The Sacred River](https://github.com/thoppe/alph-the-sacred-river) by [Travis Hoppe](https://twitter.com/metasemantic)
+-   [OpenAI's CLIP](https://github.com/openai/CLIP)
+-   [Unsplash](https://unsplash.com/)
