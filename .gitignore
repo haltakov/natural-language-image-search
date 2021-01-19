@@ -138,3 +138,9 @@ model.py
 clip.py
 simple_tokenizer.py
 bpe_simple_vocab_16e6.txt.gz
+
+# Unsplash dataset files
+*.tsv*
+unsplash-dataset/**/*.jpg
+unsplash-dataset/**/*.csv
+unsplash-dataset/**/*.npy
