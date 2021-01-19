@@ -2,9 +2,14 @@
 
 Search photos on Unsplash using natural language descriptions powered by OpenAI's [CLIP model](https://github.com/openai/CLIP).
 
-## Getting Started
+There are two variants of the search:
 
-Follow the steps below to setup your environment and run the example search.
+-   [Searching photos in the Unsplash Dataset](#searching-photos-in-the-unsplash-dataset) - search for photos in the whole [Unsplash Dataset](https://github.com/unsplash/datasets) using CLIP.
+-   [Searching on unsplash.com](#searching-photos-on-unsplashcom) - fetch 100 photos from [unsplash.com](https://unsplash.com) and select the best matches using CLIP.
+
+## Setup
+
+Follow the steps below to setup your environment.
 
 1. Install the dependencies from the `requirements.txt`
 
@@ -14,11 +19,33 @@ pip install -r requirements.txt
 
 2. Run the `setup-clip.ipynb` notebook to setup CLIP.
 
-3. Run the `search-image.ipynb` to do an example search. Read the instructions in the notebook to run other experiments.
+## Searching photos in the Unsplash Dataset
 
-## Examples
+You will need to precompute the image features using CLIP for all photos in the [Unsplash Dataset](https://github.com/unsplash/datasets). I will soon share the precomputed files so you can jump directly into the search!
 
-### A car driving in the woods
+1. Run the `download-unsplash-dataset.ipynb` to download all photos.
+2. Run the `process-unsplash-dataset.ipynb` to compute the feature vectors with CLIP.
+3. Run the `search-image-dataset.ipynb` to seach for images with a natural language query.
+
+### Examples
+
+See more examples [on Twitter](https://twitter.com/haltakov/status/1351414975332495360).
+
+#### Two dogs playing in the snow
+
+![Result #1 for "Two dogs playing in the snow"](images/dog_1.jpg)
+
+![Result #2 for "Two dogs playing in the snow"](images/dog_2.jpg)
+
+![Result #3 for "Two dogs playing in the snow"](images/dog_3.jpg)
+
+## Searching photos on unsplash.com
+
+Use the `search-image.ipynb` notebook to fetch images from the Unsplash API and then find the best matches to a natural language query.
+
+### Examples
+
+#### A car driving in the woods
 
 We want to find photos on Unsplash that are described by the phrase **a car driving in the woods**.
 
