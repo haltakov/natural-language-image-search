@@ -1,5 +1,7 @@
 # Unsplash Image Search
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb)
+
 Search photos on Unsplash using natural language descriptions. The search is powered by OpenAI's [CLIP model](https://github.com/openai/CLIP) and the [Unsplash Dataset](https://unsplash.com/data).
 
 ### "Two dogs playing in the snow"
@@ -34,7 +36,9 @@ The precomputed feature vectors for all images can then be used to find the best
 
 ### On Google Colab
 
-If you just want to play around with different queries jump to the [Colab notebook]().
+If you just want to play around with different queries jump to the [Colab notebook](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb).
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb)
 
 ### On your machine
 
