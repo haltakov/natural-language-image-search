@@ -1,77 +1,66 @@
 # Unsplash Image Search
 
-Search photos on Unsplash using natural language descriptions powered by OpenAI's [CLIP model](https://github.com/openai/CLIP).
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb)
 
-There are two variants of the search:
+Search photos on Unsplash using natural language descriptions. The search is powered by OpenAI's [CLIP model](https://github.com/openai/CLIP) and the [Unsplash Dataset](https://unsplash.com/data).
 
--   [Searching photos in the Unsplash Dataset](#searching-photos-in-the-unsplash-dataset) - search for photos in the whole [Unsplash Dataset](https://github.com/unsplash/datasets) using CLIP.
--   [Searching on unsplash.com](#searching-photos-on-unsplashcom) - fetch 100 photos from [unsplash.com](https://unsplash.com) and select the best matches using CLIP.
+### "Two dogs playing in the snow"
 
-## Setup
+![Search results for "Two dogs playing in the snow"](images/example_dogs.png)
+<sub>Photos by [Richard Burlton](https://unsplash.com/@richardworks?utm_source=ml_image_search&utm_medium=referral), [Karl Anderson](https://unsplash.com/@karlkiwi90?utm_source=ml_image_search&utm_medium=referral) and [Xuecheng Chen](https://unsplash.com/@samaritan_?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral).</sub>
 
-Follow the steps below to setup your environment.
+### "The word love written on the wall"
 
-1. Install the dependencies from the `requirements.txt`
+![Search results for "The word love written on the wall"](images/example_love.png)
+<sub>Photos by [Genton Damian](https://unsplash.com/@damiangenton96?utm_source=ml_image_search&utm_medium=referral) , [Anna Rozwadowska](https://unsplash.com/@arozwadowska?utm_source=ml_image_search&utm_medium=referral), [Jude Beck](https://unsplash.com/@judebeck?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral).</sub>
+
+### "The feeling when your program finally works"
+
+![Search results for "The feeling when your program finally works"](images/example_feeling.png)
+<sub>Photos by [bruce mars](https://unsplash.com/@brucemars?utm_source=ml_image_search&utm_medium=referral), [LOGAN WEAVER](https://unsplash.com/@lgnwvr?utm_source=ml_image_search&utm_medium=referral), [Vasyl Skunziak](https://unsplash.com/@vskvsk1?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral).</sub>
+
+### "The Syndey Opera House and the Harbour Bridge at night"
+
+![Search results for "The Syndey Opera House and the Harbour Bridge at night"](images/example_sydney.png)
+<sub>Photos by [Dalal Nizam](https://unsplash.com/@dilson?utm_source=ml_image_search&utm_medium=referral) and [Anna Tremewan](https://unsplash.com/@annatre?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral).</sub>
+
+## How It Works?
+
+OpenAI's [CLIP](https://openai.com/blog/clip/) neural networs is able to transform both images and text into the same latent space, where they can be compared using a similarity measure.
+
+For this project all photos from the full [Unsplash Dataset](https://unsplash.com/data) (almost 2M photos) were downloaded and processed with CLIP.
+
+The precomputed feature vectors for all images can then be used to find the best match to a natural language search query.
+
+## How To Run The Code?
+
+### On Google Colab
+
+If you just want to play around with different queries jump to the [Colab notebook](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb).
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/haltakov/unsplash-image-search/blob/main/colab/unsplash-image-search.ipynb)
+
+### On your machine
+
+Before running any of the code, make sure to install all dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-2. Run the `setup-clip.ipynb` notebook to setup CLIP.
+If you want to run all the code yourself open the Jupyter notebooks in the order they are numbered and follow the instructions there:
 
-## Searching photos in the Unsplash Dataset
+-   `01-setup-clip.ipynb` - setup the environment checking out and preparing the CLIP code.
+-   `02-download-unsplash-dataset.ipynb` - download the photos from the Unsplash dataset
+-   `03-process-unsplash-dataset.ipynb` - process all photos from the dataset with CLIP
+-   `04-search-image-dataset.ipynb` - search for a photo in the dataset using natural language queries
+-   `09-search-image-api.ipynb` - search for a photo using the Unsplash Search API and filter the results using CLIP.
 
-You will need to precompute the image features using CLIP for all photos in the [Unsplash Dataset](https://github.com/unsplash/datasets). I will soon share the precomputed files so you can jump directly into the search!
+> NOTE: only the Lite versio of the Unsplash Dataset is publicly available. If you want to use the Full version, you will need to [apply](https://unsplash.com/data) for (free) access.
 
-1. Run the `download-unsplash-dataset.ipynb` to download all photos.
-2. Run the `process-unsplash-dataset.ipynb` to compute the feature vectors with CLIP.
-3. Run the `search-image-dataset.ipynb` to seach for images with a natural language query.
+> NOTE: searching for images using the Unsplash Search API doesn't require access to the Unsplash Dataset, but will probably deliver worse results.
 
-### Examples
-
-See more examples [on Twitter](https://twitter.com/haltakov/status/1351414975332495360).
-
-#### Two dogs playing in the snow
-
-![Result #1 for "Two dogs playing in the snow"](images/dog_1.jpg)
-
-![Result #2 for "Two dogs playing in the snow"](images/dog_2.jpg)
-
-![Result #3 for "Two dogs playing in the snow"](images/dog_3.jpg)
-
-## Searching photos on unsplash.com
-
-Use the `search-image.ipynb` notebook to fetch images from the Unsplash API and then find the best matches to a natural language query.
-
-### Examples
-
-#### A car driving in the woods
-
-We want to find photos on Unsplash that are described by the phrase **a car driving in the woods**.
-
-First, we fetch 100 images for the keyword `car` from the Unsplash API. They contain all kinds of photos of cars.
-
-![Search results for "car" on Unsplash](images/car_woods_all.jpg)
-
-Then, we use CLIP to find the photos that best match the phrase.
-
-![Selected image #1 for "a car driving in the woods" using CLIP](images/car_woods_1.jpg)
-
-Photo by [Jorgen Hendriksen](https://unsplash.com/@jor9en?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral)
-
-![Selected image #1 for "a car driving in the woods" using CLIP](images/car_woods_2.jpg)
-
-Photo by [Matthew Ronder-Seid](https://unsplash.com/@matthewronderseid?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral)
-
-![Selected image #1 for "a car driving in the woods" using CLIP](images/car_woods_3.jpg)
-
-Photo by [Michael Heuser](https://unsplash.com/@gum_meee?utm_source=ml_image_search&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=ml_image_search&utm_medium=referral)
-
-## How It Works
-
-[CLIP](https://openai.com/blog/clip/) is a new neural network model from OpenAI trained on huge ammount of images and text descriptions. The network can be used to transform both images and text in the same latent space. This means that we can then evaluate the similarities of images with text!
-
-## Acknowledgement
+## Acknowledgements
 
 This project was inspired by these projects:
 
