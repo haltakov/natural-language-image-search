@@ -1,0 +1,9 @@
+{
+  "name": "unsplash-proxy",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-api-gateway-caching": "^1.6.1"
+  }
+}

@@ -146,4 +146,5 @@ unsplash-dataset/**/*.csv
 unsplash-dataset/**/*.npy
 
 # Serverless
-unsplash-proxy/.serverless
+.serverless
+node_modules
