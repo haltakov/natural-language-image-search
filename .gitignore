@@ -144,3 +144,6 @@ bpe_simple_vocab_16e6.txt.gz
 unsplash-dataset/**/*.jpg
 unsplash-dataset/**/*.csv
 unsplash-dataset/**/*.npy
+
+# Serverless
+unsplash-proxy/.serverless

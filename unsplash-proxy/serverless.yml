@@ -1,0 +1,24 @@
+service: unsplash-proxy
+app: unsplash-proxy
+org: haltakov
+
+frameworkVersion: "2"
+
+provider:
+    name: aws
+    runtime: python3.8
+    iamRoleStatements:
+        - Effect: Allow
+          Action:
+              - ssm:GetParameter
+          Resource: "arn:aws:ssm:us-east-1:018469183656:parameter/UNSPLAH_API_ACCESS_KEY"
+
+functions:
+    get_photo:
+        handler: handler.get_photo
+        memorySize: 256
+        events:
+            - http:
+                  path: get_photo/{id}
+                  method: get
+                  cors: true
