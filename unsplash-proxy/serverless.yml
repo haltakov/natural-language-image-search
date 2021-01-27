@@ -5,31 +5,30 @@ org: haltakov
 frameworkVersion: "2"
 
 provider:
-    name: aws
-    runtime: python3.8
-    iamRoleStatements:
-        - Effect: Allow
-          Action:
-              - ssm:GetParameter
-          Resource: "arn:aws:ssm:us-east-1:018469183656:parameter/UNSPLAH_API_ACCESS_KEY"
+  name: aws
+  runtime: python3.8
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ssm:GetParameter
+      Resource: "arn:aws:ssm:us-east-1:018469183656:parameter/UNSPLAH_API_ACCESS_KEY"
 
 plugins:
-    - serverless-api-gateway-caching
-
+  - serverless-api-gateway-caching
 custom:
-    apiGatewayCaching:
-        enabled: true
+  apiGatewayCaching:
+    enabled: true
 
 functions:
-    get_photo:
-        handler: handler.get_photo
-        memorySize: 256
-        events:
-            - http:
-                  path: get_photo/{id}
-                  method: get
-                  cors: true
-                  caching:
-                      enabled: true
-                      cacheKeyParameters:
-                          - name: request.path.id
+  get_photo:
+    handler: handler.get_photo
+    memorySize: 256
+    events:
+      - http:
+          path: get_photo/{id}
+          method: get
+          cors: true
+          caching:
+            enabled: true
+            cacheKeyParameters:
+              - name: request.path.id
