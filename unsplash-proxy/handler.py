@@ -1,5 +1,10 @@
 import boto3
+import logging
 from urllib.request import urlopen
+
+
+log = logging.getLogger()
+log.setLevel(logging.DEBUG)
 
 
 def get_photo(event, context):
@@ -15,11 +20,11 @@ def get_photo(event, context):
     ]
 
     # Call the Unsplash API to get the photo metadata
-    photo_data = (
-        urlopen(f"https://api.unsplash.com/photos/{photo_id}?client_id={access_key}")
-        .read()
-        .decode("utf-8")
+    photo_data_url = (
+        f"https://api.unsplash.com/photos/{photo_id}?client_id={access_key}"
     )
+    log.debug(f"Fetching URL: {photo_data_url}")
+    photo_data = urlopen(photo_data_url).read().decode("utf-8")
 
     # Create the repsonse and return
     headers = {
