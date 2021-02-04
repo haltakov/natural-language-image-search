@@ -3,8 +3,14 @@ import logging
 from urllib.request import urlopen
 
 
+# Setup the logger
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
+
+
+# Get the Unsplash Access Key from the Parameter Store
+client = boto3.client("ssm")
+access_key = client.get_parameter(Name="UNSPLAH_API_ACCESS_KEY")["Parameter"]["Value"]
 
 
 def get_photo(event, context):
@@ -12,12 +18,6 @@ def get_photo(event, context):
 
     # Get the photo ID from the parameters
     photo_id = event["pathParameters"]["id"]
-
-    # Get the Unsplash Access Key from the Parameter Store
-    client = boto3.client("ssm")
-    access_key = client.get_parameter(Name="UNSPLAH_API_ACCESS_KEY")["Parameter"][
-        "Value"
-    ]
 
     # Call the Unsplash API to get the photo metadata
     photo_data_url = (
