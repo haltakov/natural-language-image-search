@@ -56,7 +56,7 @@ If you want to run all the code yourself open the Jupyter notebooks in the order
 - `04-search-image-dataset.ipynb` - search for a photo in the dataset using natural language queries
 - `09-search-image-api.ipynb` - search for a photo using the Unsplash Search API and filter the results using CLIP.
 
-> NOTE: only the Lite versio of the Unsplash Dataset is publicly available. If you want to use the Full version, you will need to [apply](https://unsplash.com/data) for (free) access.
+> NOTE: only the Lite version of the Unsplash Dataset is publicly available. If you want to use the Full version, you will need to [apply](https://unsplash.com/data) for (free) access.
 
 > NOTE: searching for images using the Unsplash Search API doesn't require access to the Unsplash Dataset, but will probably deliver worse results.
 
