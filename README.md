@@ -26,11 +26,11 @@ Search photos on Unsplash using natural language descriptions. The search is pow
 
 ## How It Works?
 
-OpenAI's [CLIP](https://openai.com/blog/clip/) neural networs is able to transform both images and text into the same latent space, where they can be compared using a similarity measure.
+OpenAI's [CLIP](https://openai.com/blog/clip/) neural network is able to transform both images and text into the same latent space, where they can be compared using a similarity measure.
 
-For this project all photos from the full [Unsplash Dataset](https://unsplash.com/data) (almost 2M photos) were downloaded and processed with CLIP.
+For this project, all photos from the full [Unsplash Dataset](https://unsplash.com/data) (almost 2M photos) were downloaded and processed with CLIP.
 
-The precomputed feature vectors for all images can then be used to find the best match to a natural language search query.
+The pre-computed feature vectors for all images can then be used to find the best match to a natural language search query.
 
 ## How To Run The Code?
 
